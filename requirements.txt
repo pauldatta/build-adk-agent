@@ -1,3 +1,4 @@
 google-adk
 pydub
 pytest
+google-generativeai

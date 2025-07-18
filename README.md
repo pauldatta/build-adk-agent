@@ -15,6 +15,17 @@ The agent has the following capabilities:
 *   It proactively displays the generated meeting notes to the user.
 *   It can display the full transcript upon request.
 
+## How it Works
+
+The agent follows a sophisticated, multi-step process to fulfill the user's request:
+
+1.  **Greet and Prompt:** The agent starts by greeting the user and asking for the path to an audio file.
+2.  **Transcribe:** It uses a `TranscriptionTool` to send the audio file to the Gemini API and get a raw text transcript.
+3.  **Save Transcript:** It uses a `FileWriterTool` to save the raw transcript to `transcript.txt`.
+4.  **Generate Notes:** The agent's LLM brain analyzes the transcript to generate a structured Markdown document with a summary, action items, highlights, and speaker comments.
+5.  **Save Notes:** It uses the `FileWriterTool` again to save the structured notes to `meeting_notes.md`.
+6.  **Display Results:** Finally, it uses a `FileReaderTool` to read the `meeting_notes.md` file and displays the content directly in the chat, offering to show the full transcript as well.
+
 ## Project Structure
 
 The project is organized as a standard ADK agent project:
@@ -24,11 +35,9 @@ The project is organized as a standard ADK agent project:
     -   `tools/`: Contains the individual tools the agent uses.
     -   `tests/`: Contains the unit tests for the tools.
     -   `adk.mod.json`: The ADK module file that registers the agent's tools.
+-   `demo_files/`: Contains a sample audio file for testing.
 -   `requirements.txt`: Lists the Python dependencies for the project.
 -   `.gitignore`: Specifies files and directories to be ignored by Git.
--   `development_notes.md`: Contains notes on the development process and lessons learned.
--   `integration_blueprint.md`: The design document for the agent.
--   `tdd_plan.md`: The test-driven development plan.
 
 ## Setup
 
@@ -65,10 +74,24 @@ The project is organized as a standard ADK agent project:
 
 ## How to Run
 
-To run the agent, execute the following command from the project root:
+This agent is designed to be fully conversational and works in both CLI and web modes.
+
+### CLI Mode
+
+To run the agent in your terminal, execute the following command from the project root:
 
 ```bash
 ./.venv/bin/adk run ./meeting_notes_agent "transcribe and summarize my meeting"
 ```
 
-The agent will then ask you for the path to the audio file. Once you provide the path in a subsequent message, it will process the file, save the transcript and notes, and then display the notes for you.
+The agent will then ask you for the path to the audio file. You can use the included demo file by replying with: `demo_files/genmedia_call.m4a`.
+
+### Web Mode
+
+To run the agent with a web interface, execute the following command:
+
+```bash
+./.venv/bin/adk web
+```
+
+Then, open the URL provided in your terminal. The conversational flow is the same as in the CLI mode.
