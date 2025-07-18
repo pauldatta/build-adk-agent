@@ -1,0 +1,9 @@
+{
+    "version": "0.0.1",
+    "tools": [
+        "meeting_notes_agent.tools.file_writer.save",
+        "meeting_notes_agent.tools.transcription_tool.transcribe_audio",
+        "meeting_notes_agent.tools.file_reader.read_file"
+    ],
+    "runtime": "python"
+}

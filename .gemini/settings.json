@@ -1,0 +1,32 @@
+{
+  "theme": "Shades Of Purple",
+  "selectedAuthType": "gemini-api-key",
+  "mcpServers": {
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "authorization_token": "Bearer ",
+      "timeout": 5000,
+      "headers": {
+        "Authorization": "Bearer $GITHUB_PAT",
+        "Content-Type": "application/json"
+      }
+    },
+      "context7": {
+        "httpUrl": "https://mcp.context7.com/mcp"
+      },
+      "mermaid": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@peng-shawn/mermaid-mcp-server"
+        ]
+      },
+      "mermaid-validator": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@rtuin/mcp-mermaid-validator@latest"
+        ]
+      }
+    }
+  }

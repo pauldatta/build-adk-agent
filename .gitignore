@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+
+# Environment variables
+.env
+
+# ADK and Test Artifacts
+.pytest_cache/
+*.log
+
+# OS-specific
+.DS_Store
+
+# Agent Output Files
+transcript.txt
+meeting_notes.md
+
+# Development and Design Files
+*.svg
+development_notes.md
+integration_blueprint.md
+tdd_plan.md
