@@ -78,20 +78,24 @@ This agent is designed to be fully conversational and works in both CLI and web 
 
 ### CLI Mode
 
-To run the agent in your terminal, execute the following command from the project root:
+1.  **Start the agent's interactive session:**
+    ```bash
+    ./.venv/bin/adk run ./meeting_notes_agent
+    ```
 
-```bash
-./.venv/bin/adk run ./meeting_notes_agent "transcribe and summarize my meeting"
-```
-
-The agent will then ask you for the path to the audio file. You can use the included demo file by replying with: `demo_files/genmedia_call.m4a`.
+2.  **Interact with the agent:**
+    Once the session starts, you will see a `[user]:` prompt. You can start the process by typing a message like:
+    ```
+    transcribe and summarize my meeting
+    ```
+    The agent will then ask you for the path to the audio file. You can use the included demo file by replying with: `demo_files/genmedia_call.m4a`.
 
 ### Web Mode
 
-To run the agent with a web interface, execute the following command:
+1.  **Start the web server:**
+    ```bash
+    ./.venv/bin/adk web
+    ```
 
-```bash
-./.venv/bin/adk web
-```
-
-Then, open the URL provided in your terminal. The conversational flow is the same as in the CLI mode.
+2.  **Interact with the agent:**
+    Open the URL provided in your terminal. In the web UI, start a new session with the `meeting_notes_agent` and send it a message like "transcribe and summarize my meeting". The conversational flow is the same as in the CLI mode.
